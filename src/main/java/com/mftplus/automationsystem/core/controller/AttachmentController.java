@@ -1,8 +1,8 @@
 package com.mftplus.automationsystem.core.controller;
 
 
-import ir.model.entity.Attachment;
-import ir.service.AttachmentService;
+import com.mftplus.automationsystem.core.model.Attachment;
+import com.mftplus.automationsystem.core.service.AttachmentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

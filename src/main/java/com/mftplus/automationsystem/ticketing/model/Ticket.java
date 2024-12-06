@@ -1,6 +1,8 @@
 package com.mftplus.automationsystem.ticketing.model;
 
-import ir.model.enums.TicketStatus;
+import com.mftplus.automationsystem.organization.model.Department;
+import com.mftplus.automationsystem.ticketing.model.enums.TicketStatus;
+import com.mftplus.automationsystem.users.model.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,8 +38,8 @@ public class Ticket {
     private Integer score;
 
     @ManyToOne
-    @JoinColumn(name = "section_id")
-    private Section section;
+    @JoinColumn(name = "department_id")
+    private Department department;
 
 
     @OneToMany(mappedBy = "ticket")

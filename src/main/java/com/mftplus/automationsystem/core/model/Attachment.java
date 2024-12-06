@@ -2,7 +2,9 @@ package com.mftplus.automationsystem.core.model;
 
 
 
-import ir.model.enums.FileType;
+import com.mftplus.automationsystem.core.model.enums.FileType;
+import com.mftplus.automationsystem.ticketing.model.Ticket;
+import com.mftplus.automationsystem.users.model.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -43,17 +45,4 @@ public class Attachment {
 
     @Column(name = "description", length = 50)
     private String description;
-
-
-    @ManyToOne
-    @JoinColumn(name="username",nullable = true,foreignKey = @ForeignKey(name = "fk_attachment_user"))
-    private User user;
-
-    @ManyToOne
-    @JoinColumn(name = "ticket_id", nullable = true,foreignKey = @ForeignKey(name = "fk_attachment_ticket"))
-    private Ticket ticket;
-
-
-
-
 }

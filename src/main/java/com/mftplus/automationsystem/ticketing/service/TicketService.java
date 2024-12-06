@@ -1,9 +1,9 @@
 package com.mftplus.automationsystem.ticketing.service;
 
-import ir.model.entity.Section;
-import ir.model.entity.Ticket;
-import ir.model.entity.User;
-import ir.model.enums.TicketStatus;
+import com.mftplus.automationsystem.organization.model.Department;
+import com.mftplus.automationsystem.ticketing.model.Ticket;
+import com.mftplus.automationsystem.ticketing.model.enums.TicketStatus;
+import com.mftplus.automationsystem.users.model.User;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ public interface TicketService {
     List<Ticket> findByUserUsername(String username);
     List<Ticket> findByStatus(TicketStatus status);
     List<Ticket> findByTitleContains(String title);
-    List<Ticket> findBySection(Section section);
+    List<Ticket> findByDepartment(Department department);
     List<Ticket> findByScoreLessThan(Integer score);
 
 }

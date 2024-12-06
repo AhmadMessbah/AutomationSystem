@@ -1,7 +1,7 @@
 package com.mftplus.automationsystem.users.service;
 
-import ir.model.entity.Role;
-import ir.model.entity.User;
+import com.mftplus.automationsystem.users.model.Role;
+import com.mftplus.automationsystem.users.model.User;
 
 import java.util.List;
 

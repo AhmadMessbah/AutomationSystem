@@ -1,8 +1,8 @@
 package com.mftplus.automationsystem.ticketing.repository;
 
-import ir.model.entity.Message;
-import ir.model.entity.Ticket;
-import ir.model.entity.User;
+import com.mftplus.automationsystem.ticketing.model.Message;
+import com.mftplus.automationsystem.ticketing.model.Ticket;
+import com.mftplus.automationsystem.users.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

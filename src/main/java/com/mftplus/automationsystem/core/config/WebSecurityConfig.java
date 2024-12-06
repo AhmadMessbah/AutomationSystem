@@ -1,7 +1,7 @@
 package com.mftplus.automationsystem.core.config;
 
 
-import ir.service.CustomUserDetailsService;
+import com.mftplus.automationsystem.users.service.CustomUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

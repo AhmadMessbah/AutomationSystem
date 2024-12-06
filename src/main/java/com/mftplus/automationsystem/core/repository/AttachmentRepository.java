@@ -1,9 +1,9 @@
 package com.mftplus.automationsystem.core.repository;
 
-import ir.model.entity.Attachment;
-import ir.model.entity.Ticket;
-import ir.model.entity.User;
-import ir.model.enums.FileType;
+import com.mftplus.automationsystem.core.model.Attachment;
+import com.mftplus.automationsystem.core.model.enums.FileType;
+import com.mftplus.automationsystem.ticketing.model.Ticket;
+import com.mftplus.automationsystem.users.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.LocalDateTime;
@@ -14,11 +14,4 @@ public interface AttachmentRepository extends JpaRepository<Attachment, Long> {
     List<Attachment> findByAttachTimeOrderByAttachTimeDesc(LocalDateTime attachTime); ;
     List<Attachment> findByFileType(FileType fileType);
     List<Attachment> findAllByOrderByAttachTimeDesc();
-    List<Attachment> findByUserOrderByAttachTime(User user);
-    List<Attachment> findByUserUsernameOrderByAttachTime(String username);
-    List<Attachment> findByTicketIdOrderByAttachTime(Long ticketId);
-    List<Attachment> findByTicketOrderByAttachTime(Ticket ticket);
-    List<Attachment> findByUser_UsernameAndTicket_IdOrderByAttachTime(String username, Long ticketId);
-
-
 }

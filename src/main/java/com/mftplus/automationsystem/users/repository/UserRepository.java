@@ -13,7 +13,7 @@ public interface UserRepository extends JpaRepository<User, String> {
     boolean existsUserByUsername(String username);
 //    List<User> findByFirstNameIsLikeAndLastNameIsLike(String firstName, String lastName);
     User findByUsername(String username);
-    Optional<User> findByUsernameAndPassword(String username, String password);
-    List<User> findByRoleSetContaining(Role role);
-    List<User> findByRoleSetName(String roleName);
+//    Optional<User> findByUsernameAndPassword(String username, String password);
+//    List<User> findByRoleSetContaining(Role role);
+//    List<User> findByRoleSetName(String roleName);
 }

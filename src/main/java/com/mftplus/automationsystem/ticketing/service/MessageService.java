@@ -1,8 +1,9 @@
 package com.mftplus.automationsystem.ticketing.service;
 
-import ir.model.entity.Message;
-import ir.model.entity.Ticket;
-import ir.model.entity.User;
+
+import com.mftplus.automationsystem.ticketing.model.Message;
+import com.mftplus.automationsystem.ticketing.model.Ticket;
+import com.mftplus.automationsystem.users.model.User;
 
 import java.util.List;
 

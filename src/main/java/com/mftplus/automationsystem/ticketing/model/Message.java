@@ -1,5 +1,6 @@
 package com.mftplus.automationsystem.ticketing.model;
 
+import com.mftplus.automationsystem.users.model.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
