@@ -6,7 +6,6 @@
     </appender>
 
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>logs/mylog.%d{yyyy-MM-dd}.log</fileNamePattern>
             <maxHistory>30</maxHistory>
@@ -17,18 +16,8 @@
         </encoder>
     </appender>
 
-<!--    <appender name="DB" class="ch.qos.logback.classic.db.DBAppender">-->
-<!--        <connectionSource>-->
-<!--            <driverClass>oracle.jdbc.driver.OracleDriver</driverClass>-->
-<!--            <url>jdbc:oracle:thin:@localhost:1521:xe</url>-->
-<!--            <user>ticketinglog</user>-->
-<!--            <password>java123</password>-->
-<!--        </connectionSource>-->
-<!--    </appender>-->
-
     <root level="INFO">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="FILE"/>
-<!--        <appender-ref ref="DB"/>-->
     </root>
 </configuration>
