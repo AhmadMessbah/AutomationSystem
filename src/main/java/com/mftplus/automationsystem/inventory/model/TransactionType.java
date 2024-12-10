@@ -1,5 +1,6 @@
 package com.mftplus.automationsystem.inventory.model;
 
+import com.mftplus.automationsystem.inventory.model.enums.InventoryStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,22 +14,14 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @ToString
 
-@Entity(name="storageEntity")
-@Table(name="storage_tbl")
-public class Storage {
+@Entity(name="transactionEntity")
+@Table(name="transaction_tbl")
+public class TransactionType {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "title", length = 30)
-    private String title;
-
-    @Column(name = "count")
-    private int count;
-
-    @Column(name = "location",length = 100)
-    private String location;
-
-    @Column(name = "description",length = 100)
-    private String description;
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "inventory_status")
+    private InventoryStatus inventoryStatus;
 }

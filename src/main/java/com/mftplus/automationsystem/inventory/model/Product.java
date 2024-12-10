@@ -7,14 +7,16 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.time.LocalDateTime;
+
 @NoArgsConstructor
 @Getter
 @Setter
 @SuperBuilder
 @ToString
 
-@Entity(name="ProductEntity")
-@Table(name="product_table")
+@Entity(name="productEntity")
+@Table(name="product_tbl")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,12 +24,27 @@ public class Product {
 
     private String name;
 
-    private Float price;
+//    private Float price;
 
-    private Long code;
+//    private Long code;
+
+    @Column(name = "is_active")
+    private boolean status;
 
     private String description;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH }, fetch = FetchType.EAGER)
+    @JoinColumn(name = "product_group_id")
     private ProductGroup productGroup;
+
+    @Column(name = "date_of_modified")
+    private LocalDateTime dateOfModified;
+
+    @PrePersist
+    public void beforeDateModified(){
+        dateOfModified = LocalDateTime.now();
+    }
+
+    @Column(name = "barcode", unique = true)
+    private String barcode;
 }
