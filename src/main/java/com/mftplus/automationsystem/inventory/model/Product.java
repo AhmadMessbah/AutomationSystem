@@ -31,6 +31,9 @@ public class Product {
     @Column(name = "is_active")
     private boolean status;
 
+    @Column(name="date_time")
+    private LocalDateTime dateTime;
+
     private String description;
 
     @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH }, fetch = FetchType.EAGER)

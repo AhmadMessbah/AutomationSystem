@@ -34,7 +34,7 @@ public class Property {
     @ManyToOne(cascade = CascadeType.PERSIST,fetch = FetchType.EAGER)
     private ProductGroup productGroup;
 
-    @OneToMany(mappedBy = "property")
+    @OneToMany
     private List<Product> productList;
 
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
