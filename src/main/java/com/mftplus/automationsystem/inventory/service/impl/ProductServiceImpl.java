@@ -47,7 +47,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> findByTitleProductGroup(ProductGroup productGroup) {
-        return productRepository.findByProductGroupContains(productGroup);
+    public List<Product> findByTitleProductGroup(String productGroup) {
+        return productRepository.findByProductGroupTitle(productGroup);
     }
 }

@@ -11,5 +11,5 @@ public interface ProductService {
     List<Product> findAll();
     Product findById(Long id);
     List<Product> findByName(String name);
-    List<Product> findByTitleProductGroup(ProductGroup productGroup);
+    List<Product> findByTitleProductGroup(String productGroup);
 }
