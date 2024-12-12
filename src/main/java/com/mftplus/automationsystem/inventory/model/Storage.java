@@ -24,7 +24,7 @@ public class Storage {
     private String title;
 
     @Column(name = "count")
-    private int count;
+    private Double count;
 
     @Column(name = "location",length = 100)
     private String location;

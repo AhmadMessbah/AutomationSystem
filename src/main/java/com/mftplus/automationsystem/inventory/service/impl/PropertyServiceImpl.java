@@ -1,7 +1,6 @@
 package com.mftplus.automationsystem.inventory.service.impl;
 
 import com.mftplus.automationsystem.inventory.model.Product;
-import com.mftplus.automationsystem.inventory.model.ProductGroup;
 import com.mftplus.automationsystem.inventory.model.Property;
 import com.mftplus.automationsystem.inventory.model.StorageTransaction;
 import com.mftplus.automationsystem.inventory.model.enums.InventoryStatus;

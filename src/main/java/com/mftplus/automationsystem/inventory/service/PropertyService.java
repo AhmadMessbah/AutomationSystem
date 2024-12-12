@@ -2,7 +2,6 @@ package com.mftplus.automationsystem.inventory.service;
 
 import com.mftplus.automationsystem.inventory.model.*;
 import com.mftplus.automationsystem.inventory.model.enums.InventoryStatus;
-import com.mftplus.automationsystem.users.model.User;
 
 import java.util.List;
 
