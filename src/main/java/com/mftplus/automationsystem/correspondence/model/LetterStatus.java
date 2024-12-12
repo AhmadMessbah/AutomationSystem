@@ -25,6 +25,7 @@ public class LetterStatus {
     @Column(name = "id")
     private Long id;
 
+    @Column(name = "status")
     private String status;
 
 }

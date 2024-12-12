@@ -29,34 +29,76 @@ public class Letter {
     @Column(name = "id")
     private Long id;
 
+    @Column(name = "letter_number")
     private Long number;
 
+    @Column(name = "secretariat_number")
     private Long secretariatNumber;
 
+    @Column(name = "creation_time")
     private LocalDateTime creationDateTime;
 
+    @Column(name = "secretariat_time")
     private LocalDateTime secretariatDateTime;
 
+    @Column(name = "subject")
     private String subject;
 
+    @Column(name = "content")
     private String content;
 
     @ManyToOne
+    @JoinColumn(
+            name = "sender_id",
+            foreignKey = @ForeignKey(name = "fk_letter_user")
+    )
     private User sender;
 
     @ManyToOne
+    @JoinColumn(
+            name = "appeal_id",
+            foreignKey = @ForeignKey(name = "fk_letter_appeal")
+    )
     private Appeal appeal;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+            name = "letter_attachment_tbl",
+            joinColumns = @JoinColumn(name = "letter_id"),
+            inverseJoinColumns = @JoinColumn(name = "attachment_id"),
+            foreignKey = @ForeignKey(name = "fk_letter_attachment"),
+            inverseForeignKey = @ForeignKey(name = "fk_inverse_letter_attachment")
+    )
     private List<Attachment> attachmentList;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+            name = "letter_letter_detail_tbl",
+            joinColumns = @JoinColumn(name = "letter_id"),
+            inverseJoinColumns = @JoinColumn(name = "letter_detail_id"),
+            foreignKey = @ForeignKey(name = "fk_letter_detail"),
+            inverseForeignKey = @ForeignKey(name = "fk_inverse_letter_detail")
+    )
     private List<LetterDetail> letterDetailList;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+            name = "letter_referrals_tbl",
+            joinColumns = @JoinColumn(name = "letter_id"),
+            inverseJoinColumns = @JoinColumn(name = "referrals_id"),
+            foreignKey = @ForeignKey(name = "fk_letter_referrals"),
+            inverseForeignKey = @ForeignKey(name = "fk_inverse_letter_referrals")
+    )
     private List<Referrals> referralsList;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+            name = "letter_initials_tbl",
+            joinColumns = @JoinColumn(name = "letter_id"),
+            inverseJoinColumns = @JoinColumn(name = "initials_id"),
+            foreignKey = @ForeignKey(name = "fk_letter_initials"),
+            inverseForeignKey = @ForeignKey(name = "fk_inverse_letter_initials")
+    )
     private List<Initials> initialsList;
 
     public void addAttachment(Attachment attachment) {

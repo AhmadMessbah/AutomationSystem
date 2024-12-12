@@ -26,11 +26,20 @@ public class Secretariat {
     @Column(name = "id")
     private Long id;
 
+    @Column(name = "name")
     private String name;
 
+    @Column(name = "location")
     private String location;
 
     @OneToMany
+    @JoinTable(
+            name = "secretariat_letter_tbl",
+            joinColumns = @JoinColumn(name = "secretariat_id"),
+            inverseJoinColumns = @JoinColumn(name = "letter_id"),
+            foreignKey = @ForeignKey(name = "fk_secretariat_letter"),
+            inverseForeignKey = @ForeignKey(name = "fk_inverse_secretariat_letter")
+    )
     private List<Letter> letterList;
 
     public void addLetter(Letter letter) {

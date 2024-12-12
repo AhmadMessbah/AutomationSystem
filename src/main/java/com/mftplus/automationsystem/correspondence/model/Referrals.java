@@ -25,11 +25,20 @@ public class Referrals {
     @Column(name = "id")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(
+            name = "forwarder_id",
+            foreignKey = @ForeignKey(name = "fk_referrals_forwarder")
+    )
     private User forwarder;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(
+            name = "receiver_id",
+            foreignKey = @ForeignKey(name = "fk_referrals_receiver")
+    )
     private User receiver;
 
+    @Column(name = "approval")
     private boolean needApproval;
 }

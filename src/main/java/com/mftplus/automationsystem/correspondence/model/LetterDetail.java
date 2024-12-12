@@ -26,14 +26,27 @@ public class LetterDetail {
     @Column(name = "id")
     private Long id;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(
+            name = "priority_id",
+            foreignKey = @ForeignKey(name = "fk_letter_detail_priority")
+    )
     private LetterPriority priority;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(
+            name = "status_id",
+            foreignKey = @ForeignKey(name = "fk_letter_detail_status")
+    )
     private LetterStatus status;
 
+    @Column(name = "last_update")
     private LocalDateTime lastUpdate;
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(
+            name = "detail_changer_id",
+            foreignKey = @ForeignKey(name = "fk_letter_detail_changer")
+    )
     private User detailChangeUser;
 }

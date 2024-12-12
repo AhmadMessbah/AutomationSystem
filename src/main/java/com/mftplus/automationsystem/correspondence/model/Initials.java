@@ -14,8 +14,8 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @ToString
 
-@Entity(name="initialsEntity")
-@Table(name="initials_tbl")
+@Entity(name = "initialsEntity")
+@Table(name = "initials_tbl")
 public class Initials {
 
     @Id
@@ -24,8 +24,13 @@ public class Initials {
     @Column(name = "id")
     private Long id;
 
+    @Column(name = "text")
     private String text;
 
     @ManyToOne
+    @JoinColumn(
+            name = "author_id",
+            foreignKey = @ForeignKey(name = "fk_initials_user")
+    )
     private User author;
 }

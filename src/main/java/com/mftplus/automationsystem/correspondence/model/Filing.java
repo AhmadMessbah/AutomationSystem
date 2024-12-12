@@ -26,11 +26,20 @@ public class Filing {
     @Column(name = "id")
     private Long id;
 
+    @Column(name = "name")
     private String name;
 
+    @Column(name = "location")
     private String location;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "filing_letter_tbl",
+            joinColumns = @JoinColumn(name = "filing_id"),
+            inverseJoinColumns = @JoinColumn(name = "letter_id"),
+            foreignKey = @ForeignKey(name = "fk_filing_letter"),
+            inverseForeignKey = @ForeignKey(name = "fk_inverse_filing_letter")
+    )
     private List<Letter> letterList;
 
     public void addLetter(Letter letter) {

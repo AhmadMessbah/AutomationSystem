@@ -1,6 +1,7 @@
 package com.mftplus.automationsystem.correspondence.model;
 
 import com.mftplus.automationsystem.organization.model.Department;
+import com.mftplus.automationsystem.users.model.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,15 +29,28 @@ public class Appeal {
     @Column(name = "id")
     private Long id;
 
+    @Column(name = "title")
     private String title;
 
+    @Column(name = "creation_time")
     private LocalDateTime creationDateTime;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "appeal", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Letter> letterList;
 
     @ManyToOne
+    @JoinColumn(
+            name = "department_id",
+            foreignKey = @ForeignKey(name = "fk_appeal_department")
+    )
     private Department department;
+
+    @ManyToOne
+    @JoinColumn(
+            name = "applicator_id",
+            foreignKey = @ForeignKey(name = "fk_appeal_user")
+    )
+    private User applicator;
 
     public void addLetter(Letter letter) {
         if(letterList == null) {

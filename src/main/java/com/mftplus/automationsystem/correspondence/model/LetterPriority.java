@@ -23,5 +23,6 @@ public class LetterPriority {
     @Column(name = "id")
     private Long id;
 
+    @Column(name = "priority")
     private String priority;
 }
