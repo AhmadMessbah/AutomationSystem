@@ -24,7 +24,7 @@ public class Product {
 
     private String name;
 
-//    private Float price;
+    private Float price;
 
 //    private Long code;
 
@@ -36,7 +36,7 @@ public class Product {
 
     private String description;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH }, fetch = FetchType.EAGER)
+    @ManyToOne( fetch = FetchType.EAGER)
     @JoinColumn(name = "product_group_id")
     private ProductGroup productGroup;
 

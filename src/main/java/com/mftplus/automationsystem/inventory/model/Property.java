@@ -31,17 +31,17 @@ public class Property {
     @Column(name = "inventory_status")
     private InventoryStatus inventoryStatus;
 
-    @ManyToOne(cascade = CascadeType.PERSIST,fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     private ProductGroup productGroup;
 
     @OneToMany
     private List<Product> productList;
 
-    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @ManyToOne( fetch = FetchType.EAGER)
     @JoinColumn(name="username")
     private User user;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH} , fetch = FetchType.EAGER)
+    @ManyToOne( fetch = FetchType.EAGER)
     @JoinColumn(name="storage")
     private Storage storage;
 

@@ -33,7 +33,7 @@ public class ProductGroup {
     private ProductGroup parentGroup;
 
     @ToString.Exclude
-    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "parentGroup")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "parentGroup")
     private List<ProductGroup> childGroupList;
 
     public void addChildGroup(ProductGroup childGroup){
